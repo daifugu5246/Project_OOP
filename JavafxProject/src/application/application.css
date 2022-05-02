@@ -1,0 +1,38 @@
+
+#pane{
+    -fx-background-image: url('img/bg1.jpg');
+    -fx-opacity: 90%;
+    -fx-background-repeat: no-repeat; 
+    -fx-background-size: 100% 100%; 
+    -fx-background-position: center center;
+}
+#Header{
+	-fx-background-color: #83BC72; 
+	-fx-background-radius: 12px 12px 0px 0px;
+	-fx-font-family: "Berlin Sans FB";
+	-fx-text-fill: "white";
+}
+.button{
+	-fx-background-color: #83BC72;
+	-fx-font-family: "Berlin Sans FB";
+	-fx-font-size: 14px;
+	-fx-text-fill: "white";
+}
+.button:hover{
+  	-fx-background-color: linear-gradient( #9FBC96 45%, #83BC72 100%);
+  	-fx-font-size: 15px;
+  	-fx-font-family: "Berlin Sans FB";
+  	-fx-text-fill: "white";
+}
+#subPane{
+	-fx-background-color: white;
+	-fx-background-radius: 12px; 
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+#greetingText{
+	-fx-background-color: white;
+	-fx-font-family: "Berlin Sans FB";
+	-fx-background-radius: 8px; 
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+	-fx-text-fill: "black";
+}
