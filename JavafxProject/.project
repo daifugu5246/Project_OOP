@@ -22,9 +22,34 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>src/application/profile.fxml</name>
+			<type>1</type>
+			<location>C:/Education/OOP/Project/JavafxProject/src/application/profile.fxml</location>
+		</link>
+		<link>
 			<name>src/application/test_register.fxml</name>
 			<type>1</type>
 			<location>C:/Education/OOP/Project/JavafxProject/src/application/test_register.fxml</location>
+		</link>
+		<link>
+			<name>src/application/vaccine.fxml</name>
+			<type>1</type>
+			<location>C:/Education/OOP/Project/JavafxProject/src/application/vaccine.fxml</location>
+		</link>
+		<link>
+			<name>src/application/img/female.png</name>
+			<type>1</type>
+			<location>C:/Education/OOP/Project/JavafxProject/src/application/img/female.png</location>
+		</link>
+		<link>
+			<name>src/application/img/male.png</name>
+			<type>1</type>
+			<location>C:/Education/OOP/Project/JavafxProject/src/application/img/male.png</location>
+		</link>
+		<link>
+			<name>src/application/img/prefer_not_to_say.png</name>
+			<type>1</type>
+			<location>C:/Education/OOP/Project/JavafxProject/src/application/img/prefer_not_to_say.png</location>
 		</link>
 	</linkedResources>
 </projectDescription>

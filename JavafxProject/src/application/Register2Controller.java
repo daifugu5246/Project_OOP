@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -39,6 +40,12 @@ public class Register2Controller implements Initializable {
 	private TextField firstname;
 	@FXML 
 	private TextField lastname;
+	@FXML 
+	private RadioButton male;
+	@FXML
+	private RadioButton female;
+	@FXML
+	private RadioButton prefNotSay;
 	
 	private SceneController switchScene;
 	//private File file = null;
@@ -47,6 +54,7 @@ public class Register2Controller implements Initializable {
 	private ObjectOutputStream oout = null;
 	private FileInputStream fin = null;
 	private ObjectInputStream oin = null;
+	private Gender gender;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -70,10 +78,11 @@ public class Register2Controller implements Initializable {
 			oin = new ObjectInputStream(fin);
 			@SuppressWarnings("unchecked")
 			ArrayList<User> users = (ArrayList<User>) oin.readObject();
+			//ArrayList<User> users = new ArrayList<User>();
 			if(mapUsername()) {
 				if(usernameCheck(usernameField.getText()) && passwordCheck(passwordField.getText()) && infoCheck(firstname.getText(), lastname.getText(), birthdate.getEditor().getText())) {
 					//System.out.println(usernameField.getText());
-					User user = new User(usernameField.getText(),passwordField.getText(),firstname.getText(),lastname.getText(),birthdate.getValue());
+					User user = new User(usernameField.getText(),passwordField.getText(),firstname.getText(),lastname.getText(),birthdate.getValue(),this.gender);
 					users.add(user);
 					//System.out.println(user.getUsername());
 					fout = new FileOutputStream("resource/user.txt");
@@ -163,6 +172,15 @@ public class Register2Controller implements Initializable {
 			return false;
 		}
 		//return true;
+	}
+	public void takeGender(ActionEvent event) {
+		if(male.isSelected()) {
+			this.gender = Gender.MALE;
+		}else if (female.isSelected()){
+			this.gender = Gender.FEMALE;
+		}else if (prefNotSay.isSelected()){
+			this.gender = Gender.PREFER_NOT_TO_SAY;
+		}
 	}
 	public void cleanWarning(KeyEvent type) {
 		warningText.setText("");

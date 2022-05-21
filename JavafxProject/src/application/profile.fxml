@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.profileController">
+   <children>
+      <Pane fx:id="subPane" layoutX="192.0" layoutY="41.0" prefHeight="486.0" prefWidth="551.0">
+         <children>
+            <ImageView fx:id="profile" fitHeight="180.0" fitWidth="180.0" layoutX="186.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lastname" layoutX="287.0" layoutY="260.0" prefHeight="48.0" prefWidth="180.0" text="Surname">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="firstname" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="260.0" prefHeight="48.0" prefWidth="180.0" text="Name">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="birthdate" alignment="CENTER" layoutX="163.0" layoutY="324.0" prefHeight="48.0" prefWidth="239.0" text="Birthdate">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Button fx:id="logout" alignment="CENTER" layoutX="139.0" layoutY="416.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="35.0" prefWidth="111.0" text="Log out">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="toVaccine" alignment="CENTER" layoutX="315.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" text="Vaccine">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Label fx:id="Header" alignment="CENTER" prefHeight="45.0" prefWidth="551.0" text="Profile">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="toEditProfile" layoutX="21.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchToEditProfile" prefHeight="45.0" prefWidth="35.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@img/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

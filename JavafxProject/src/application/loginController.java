@@ -66,7 +66,7 @@ public class loginController implements Initializable{
 				String password = users.get(i).getPassword();
 				if( ((usernameField.getText()).equals(username)) && ((passwordField.getText()).equals(password)) ) {
 					this.user = users.get(i);
-					switchToHello(event);
+					switchToProfile(event);
 					break;
 				}
 				else if( ((usernameField.getText()).equals(username))== true && ((passwordField.getText()).equals(password)) == false ) {
@@ -90,12 +90,12 @@ public class loginController implements Initializable{
 		switchScene.switchToRegister(event);
 	}
 	
-	public void switchToHello(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("hello.fxml"));
+	public void switchToProfile(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
 		Parent root = loader.load();
-		helloController hello = loader.getController();
-		hello.takeUser(user);
-		hello.greeting();
+		profileController profile = loader.getController();
+		profile.takeUser(user);
+		profile.setInfo();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         String css = this.getClass().getResource("application.css").toExternalForm();

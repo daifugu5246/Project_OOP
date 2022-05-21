@@ -23,6 +23,7 @@
   	-fx-font-size: 15px;
   	-fx-font-family: "Berlin Sans FB";
   	-fx-text-fill: "white";
+  	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
 }
 #backToProfile{
 	-fx-background-color: #83BC72;
@@ -35,6 +36,7 @@
   	-fx-font-size: 14px;
   	-fx-font-family: "Berlin Sans FB";
   	-fx-text-fill: "white";
+  	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
 }
 #subPane{
 	-fx-background-color: white;
@@ -47,4 +49,21 @@
 	-fx-background-radius: 8px; 
 	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 	-fx-text-fill: "black";
+}
+#toEditProfile{
+	-fx-background-color: #DCDCDC;
+	-fx-background-image: url('img/pencil.png');
+	-fx-background-repeat: stretch; 
+	-fx-background-position: center center;
+	-fx-background-size: 30 30;
+	-fx-background-radius: 12px;
+}
+#toEditProfile:hover{
+	-fx-background-color: #DCDCDC;
+	-fx-background-image: url('img/pencil.png');
+	-fx-background-repeat: stretch; 
+	-fx-background-position: center center;
+	-fx-background-size: 30 30;
+	-fx-background-radius: 12px;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
 }

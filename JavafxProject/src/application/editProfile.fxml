@@ -14,14 +14,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#switchToHello" prefHeight="569.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditProfileController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="936.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditProfileController">
    <children>
       <Pane fx:id="subPane" layoutX="256.0" layoutY="23.0" prefHeight="524.0" prefWidth="424.0">
          <children>
+            <Text fx:id="warningText" fill="RED" layoutX="101.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="232.53668212890625" />
             <Group layoutX="102.0" layoutY="250.0">
                <children>
                   <Rectangle fx:id="lastnameFrame" arcHeight="5.0" arcWidth="5.0" fill="#a0d091" height="26.0" opacity="0.9" stroke="#00000033" strokeType="INSIDE" width="231.0" />
-                  <TextField fx:id="lastname" layoutX="57.0" opacity="0.9" prefHeight="26.0" prefWidth="174.0" promptText="lastname" />
+                  <TextField fx:id="lastnameField" layoutX="57.0" opacity="0.9" prefHeight="26.0" prefWidth="174.0" promptText="lastname" />
                   <Text layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lastname" textAlignment="CENTER" wrappingWidth="58.936767578125">
                      <font>
                         <Font name="System Bold" size="11.0" />
@@ -32,7 +33,7 @@
             <Group layoutX="101.0" layoutY="292.0">
                <children>
                   <Rectangle fx:id="birthdateFrame" arcHeight="5.0" arcWidth="5.0" fill="#a0d091" height="26.0" opacity="0.9" stroke="#00000033" strokeType="INSIDE" width="233.0" />
-                  <DatePicker fx:id="birthdate" layoutX="58.0" opacity="0.9" prefHeight="26.0" promptText="dd/mm/yyyy" />
+                  <DatePicker fx:id="birthdateField" layoutX="58.0" opacity="0.9" prefHeight="26.0" promptText="dd/mm/yyyy" />
                   <Text layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthdate" textAlignment="CENTER" wrappingWidth="58.936767578125">
                      <font>
                         <Font name="System Bold" size="11.0" />
@@ -43,7 +44,7 @@
             <Group layoutX="102.0" layoutY="205.0">
                <children>
                   <Rectangle fx:id="firstnameFrame" arcHeight="5.0" arcWidth="5.0" fill="#a0d091" height="26.0" opacity="0.9" stroke="#00000033" strokeType="INSIDE" width="231.0" />
-                  <TextField fx:id="firstname" layoutX="56.0" opacity="0.9" prefHeight="26.0" prefWidth="174.0" promptText="firstname" />
+                  <TextField fx:id="firstnameField" layoutX="56.0" opacity="0.9" prefHeight="26.0" prefWidth="174.0" promptText="firstname" />
                   <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Firstname" textAlignment="CENTER" wrappingWidth="55.73681640625">
                      <font>
                         <Font name="System Bold" size="11.0" />
@@ -56,12 +57,12 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" layoutX="218.0" layoutY="432.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" text="Save">
+            <Button alignment="CENTER" layoutX="218.0" layoutY="432.0" mnemonicParsing="false" onAction="#save" prefHeight="35.0" prefWidth="111.0" text="Save">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="backToProfile" alignment="CENTER" layoutX="96.0" layoutY="432.0" mnemonicParsing="false" onAction="#switchToHello" prefHeight="35.0" prefWidth="111.0" text="Back To Profile">
+            <Button fx:id="backToProfile" alignment="CENTER" layoutX="96.0" layoutY="432.0" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="35.0" prefWidth="111.0" text="Back To Profile">
                <font>
                   <Font size="13.0" />
                </font>

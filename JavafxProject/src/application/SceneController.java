@@ -39,8 +39,8 @@ public class SceneController{
         stage.setResizable(false);
         stage.show();
 	}
-	public void switchToEditProfile(ActionEvent event) throws IOException {
-		loader = new FXMLLoader(getClass().getResource("editProfile.fxml"));
+	public void switchToTable(ActionEvent event) throws IOException {
+		loader = new FXMLLoader(getClass().getResource("Table.fxml"));
 		root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -50,4 +50,5 @@ public class SceneController{
         stage.setResizable(false);
         stage.show();
 	}
+	
 }

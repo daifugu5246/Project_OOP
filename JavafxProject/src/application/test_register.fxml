@@ -5,7 +5,9 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -76,12 +78,12 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button fx:id="regButton" alignment="CENTER" layoutX="218.0" layoutY="432.0" mnemonicParsing="false" onAction="#register" prefHeight="35.0" prefWidth="111.0" text="Register">
+            <Button fx:id="regButton" alignment="CENTER" layoutX="217.0" layoutY="465.0" mnemonicParsing="false" onAction="#register" prefHeight="35.0" prefWidth="111.0" text="Register">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="backButton" alignment="CENTER" layoutX="96.0" layoutY="432.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="35.0" prefWidth="111.0" text="Back To Login">
+            <Button fx:id="backButton" alignment="CENTER" layoutX="95.0" layoutY="465.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="35.0" prefWidth="111.0" text="Back To Login">
                <font>
                   <Font size="14.0" />
                </font>
@@ -94,7 +96,23 @@
                   <DropShadow blurType="ONE_PASS_BOX" />
                </effect>
             </ImageView>
-            <Text fx:id="warningText" fill="RED" layoutX="95.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="232.53668212890625" />
+            <Text fx:id="warningText" fill="RED" layoutX="95.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="232.53668212890625" />
+            <Text layoutX="100.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender :" wrappingWidth="58.936767578125">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Group layoutX="99.0" layoutY="414.0">
+               <children>
+                  <RadioButton fx:id="male" layoutY="1.0" mnemonicParsing="false" onAction="#takeGender" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="gender" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="female" layoutX="53.0" mnemonicParsing="false" onAction="#takeGender" prefHeight="19.0" prefWidth="68.0" text="Female" toggleGroup="$gender" />
+                  <RadioButton fx:id="prefNotSay" layoutX="119.0" mnemonicParsing="false" onAction="#takeGender" prefHeight="18.0" prefWidth="118.0" text="Prefer not to say" toggleGroup="$gender" />
+               </children>
+            </Group>
          </children>
       </Pane>
    </children>
