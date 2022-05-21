@@ -10,10 +10,12 @@
    <children>
       <Label fx:id="greetingText" alignment="CENTER" contentDisplay="CENTER" layoutX="189.0" layoutY="239.0" prefHeight="91.0" prefWidth="558.0" AnchorPane.bottomAnchor="238.8" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="188.60000000000002" AnchorPane.topAnchor="239.0">
          <font>
-            <Font size="46.0" />
+            <Font size="26.0" />
          </font>
       </Label>
-      <Button fx:id="helloBack" layoutX="424.0" layoutY="434.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="36.0" prefWidth="87.0" text="Back" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="424.8" />
+      <Button fx:id="helloBack" layoutX="268.0" layoutY="434.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="36.0" prefWidth="87.0" text="Back" />
+      <Button fx:id="editProfile" layoutX="417.0" layoutY="434.0" mnemonicParsing="false" onAction="#switchToEditProfile" prefHeight="36.0" prefWidth="101.0" text="Edit Profile" />
+      <Button fx:id="helloNext" layoutX="571.0" layoutY="434.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="87.0" text="Next" />
    </children>
    <opaqueInsets>
       <Insets />

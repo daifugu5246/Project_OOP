@@ -29,7 +29,18 @@ public class SceneController{
         stage.show();
 	}
 	public void switchToRegister(ActionEvent event) throws IOException {
-		loader = new FXMLLoader(getClass().getResource("register.fxml"));
+		loader = new FXMLLoader(getClass().getResource("test_register.fxml"));
+		root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+	}
+	public void switchToEditProfile(ActionEvent event) throws IOException {
+		loader = new FXMLLoader(getClass().getResource("editProfile.fxml"));
 		root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

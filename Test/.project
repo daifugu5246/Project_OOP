@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>JavafxProject</name>
+	<name>Test</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -10,21 +10,15 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.xtext.ui.shared.xtextBuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/application/test_register.fxml</name>
-			<type>1</type>
-			<location>C:/Education/OOP/Project/JavafxProject/src/application/test_register.fxml</location>
+			<name>resource</name>
+			<type>2</type>
+			<location>C:/Education/OOP/Project/Test/resource</location>
 		</link>
 	</linkedResources>
 </projectDescription>

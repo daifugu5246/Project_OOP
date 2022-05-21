@@ -24,6 +24,18 @@
   	-fx-font-family: "Berlin Sans FB";
   	-fx-text-fill: "white";
 }
+#backToProfile{
+	-fx-background-color: #83BC72;
+	-fx-font-family: "Berlin Sans FB";
+	-fx-font-size: 13.5px;
+	-fx-text-fill: "white";
+}
+#backToProfile:hover{
+	-fx-background-color: linear-gradient( #9FBC96 45%, #83BC72 100%);
+  	-fx-font-size: 14px;
+  	-fx-font-family: "Berlin Sans FB";
+  	-fx-text-fill: "white";
+}
 #subPane{
 	-fx-background-color: white;
 	-fx-background-radius: 12px; 

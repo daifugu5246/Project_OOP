@@ -1,5 +1,9 @@
 package application;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +25,7 @@ public class Main extends Application{
         primaryStage.setResizable(false);
         primaryStage.show();
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
         launch(args);
     }
 }

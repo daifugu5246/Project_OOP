@@ -8,12 +8,16 @@ import javafx.animation.ScaleTransition;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class helloController implements Initializable{
+public class helloController extends TranferInfo{
 	@FXML
 	private Label greetingText;
 	@FXML
@@ -30,13 +34,25 @@ public class helloController implements Initializable{
 		scale.setDuration(Duration.seconds(1));
 		scale.play();
 	}
-	public void greeting(String username) {
-		greetingText.setText("Hello " + username + " :)");
+	
+	public void greeting() {
+		greetingText.setText("Hello " + getFirstname() + " " + getLastname()+ " :)");
 	}
 	public void backToLogin(ActionEvent event) throws IOException {
 		switchScene = new SceneController();
 		switchScene.switchToLogin(event);
 	}
-	
-	
+	public void switchToEditProfile(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("editProfile.fxml"));
+		Parent root = loader.load();
+		EditProfileController edit = loader.getController();
+		edit.takeUser(user);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+	}
 }

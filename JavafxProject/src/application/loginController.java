@@ -1,12 +1,11 @@
 package application;
 
-import java.io.File;
-
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.Timer;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -38,8 +37,9 @@ public class loginController implements Initializable{
 	@FXML
 	private Pane subPane;
 	private SceneController switchScene;
-	private File file = new File("resource/user.txt");
-	
+	private FileInputStream fin = null;
+	private ObjectInputStream oin = null;
+	private User user;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		TranslateTransition translate = new TranslateTransition();
@@ -56,12 +56,16 @@ public class loginController implements Initializable{
 		translate.play();
 	}
 	public void login(ActionEvent event) throws IOException {
-		try(Scanner reader = new Scanner(file)){
-			reader.useDelimiter("/");
-			while(reader.hasNext()) {
-				String username = reader.next();
-				String password = reader.next();
+		try{
+			fin = new FileInputStream("resource/user.txt");
+			oin = new ObjectInputStream(fin);
+			@SuppressWarnings("unchecked")
+			ArrayList<User> users = (ArrayList<User>) oin.readObject(); 
+			for(int i = 0 ; i < users.size() ; i++) {
+				String username = users.get(i).getUsername();
+				String password = users.get(i).getPassword();
 				if( ((usernameField.getText()).equals(username)) && ((passwordField.getText()).equals(password)) ) {
+					this.user = users.get(i);
 					switchToHello(event);
 					break;
 				}
@@ -90,14 +94,14 @@ public class loginController implements Initializable{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("hello.fxml"));
 		Parent root = loader.load();
 		helloController hello = loader.getController();
-		String username = usernameField.getText();
-		hello.greeting(username);
+		hello.takeUser(user);
+		hello.greeting();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         String css = this.getClass().getResource("application.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.show();
 	}
 	public void cleanWarning(KeyEvent type) {
