@@ -1,13 +1,19 @@
 package application;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Vaccine {
+
+public class Vaccine implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer number;
 	private String name;
 	private String company;
 	private LocalDate date;
-	private String Hospital;
+	private String hospital;
 	
 	public Vaccine() {
 		
@@ -18,7 +24,7 @@ public class Vaccine {
 		this.name = name;
 		this.company = company;
 		this.date = date;
-		Hospital = hospital;
+		this.hospital = hospital;
 	}
 	public Integer getNumber() {
 		return number;
@@ -45,14 +51,14 @@ public class Vaccine {
 		this.date = date;
 	}
 	public String getHospital() {
-		return Hospital;
+		return hospital;
 	}
 	public void setHospital(String hospital) {
-		Hospital = hospital;
+		this.hospital = hospital;
 	}
 	@Override
 	public String toString() {
 		return "Vaccine [number=" + number + ", name=" + name + ", company=" + company + ", date=" + date
-				+ ", Hospital=" + Hospital + "]";
+				+ ", Hospital=" + hospital + "]";
 	}
 }

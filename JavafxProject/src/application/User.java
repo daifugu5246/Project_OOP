@@ -2,6 +2,9 @@ package application;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import javafx.collections.ObservableList;
 
 public class User implements Serializable{
 	/**
@@ -14,7 +17,7 @@ public class User implements Serializable{
 	private String lastname;
 	private LocalDate birthdate;
 	private Gender gender;
-	private Vaccine vaccine;
+	private ArrayList<Vaccine> vaccines;
 	User(){
 		
 	}
@@ -56,10 +59,18 @@ public class User implements Serializable{
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
+	
+	public ArrayList<Vaccine> getVaccines() {
+		return vaccines;
+	}
+	public void setVaccines(ArrayList<Vaccine> vaccines) {
+		this.vaccines = vaccines;
+	}
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname="
-				+ lastname + ", birthdate=" + birthdate + ", gender=" + gender + ", vaccine=" + vaccine + "]";
+				+ lastname + ", birthdate=" + birthdate + ", gender=" + gender + ", vaccines=" + vaccines + "]";
 	}
+	
 	
 }

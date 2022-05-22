@@ -59,11 +59,24 @@
 	-fx-background-radius: 12px;
 }
 #toEditProfile:hover{
-	-fx-background-color: #DCDCDC;
+	-fx-background-color: linear-gradient( #E5E5E5 45%, #DCDCDC 100%);
 	-fx-background-image: url('img/pencil.png');
 	-fx-background-repeat: stretch; 
 	-fx-background-position: center center;
 	-fx-background-size: 30 30;
 	-fx-background-radius: 12px;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
+}
+#table1Button{
+	-fx-background-color: #DCDCDC;
+	-fx-font-family: "Berlin Sans FB";
+	-fx-font-size: 12px;
+	-fx-text-fill: "black";
+}
+#table1Button:hover{
+	-fx-background-color: linear-gradient( #E5E5E5 45%, #DCDCDC 100%);
+	-fx-font-family: "Berlin Sans FB";
+	-fx-font-size: 12px;
+	-fx-text-fill: "black";
 	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
 }

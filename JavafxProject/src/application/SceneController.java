@@ -39,16 +39,5 @@ public class SceneController{
         stage.setResizable(false);
         stage.show();
 	}
-	public void switchToTable(ActionEvent event) throws IOException {
-		loader = new FXMLLoader(getClass().getResource("Table.fxml"));
-		root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        String css = this.getClass().getResource("application.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-	}
 	
 }

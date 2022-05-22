@@ -47,6 +47,11 @@
 			<location>C:/Education/OOP/Project/JavafxProject/src/application/img/male.png</location>
 		</link>
 		<link>
+			<name>src/application/img/pencil.png</name>
+			<type>1</type>
+			<location>C:/Education/OOP/Project/JavafxProject/src/application/img/pencil.png</location>
+		</link>
+		<link>
 			<name>src/application/img/prefer_not_to_say.png</name>
 			<type>1</type>
 			<location>C:/Education/OOP/Project/JavafxProject/src/application/img/prefer_not_to_say.png</location>

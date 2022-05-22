@@ -1,5 +1,6 @@
 package application;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -96,7 +97,30 @@ public class Register2Controller implements Initializable {
 				warningText.setFill(Color.RED);
 				warningText.setText("*this username have been used.");
 			}
-		}catch(Exception e){
+		}catch(EOFException e){
+				try {
+					ArrayList<User> users = new ArrayList<User>();
+					if(mapUsername()) {
+						if(usernameCheck(usernameField.getText()) && passwordCheck(passwordField.getText()) && infoCheck(firstname.getText(), lastname.getText(), birthdate.getEditor().getText())) {
+							//System.out.println(usernameField.getText());
+							User user = new User(usernameField.getText(),passwordField.getText(),firstname.getText(),lastname.getText(),birthdate.getValue(),this.gender);
+							users.add(user);
+							//System.out.println(user.getUsername());
+							fout = new FileOutputStream("resource/user.txt");
+							oout = new ObjectOutputStream(fout);
+							oout.writeObject(users);
+							warningText.setFill(Color.GREEN);
+							warningText.setText("Register success.");
+						}
+					}
+					else {
+						warningText.setFill(Color.RED);
+						warningText.setText("*this username have been used.");
+					}
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+		}catch (Exception e) {
 			System.out.println(e);
 		}
 	}
@@ -129,7 +153,7 @@ public class Register2Controller implements Initializable {
 			for(int i = 0 ; i < password.length();i++) {
 				if(password.charAt(i) == ' ') {
 					check = false;
-					warningText.setText("*username can not have a space.");
+					warningText.setText("*password can not have a space.");
 					break;
 				}
 			}
@@ -167,8 +191,11 @@ public class Register2Controller implements Initializable {
 			oin.close();
 			return check;
 		}
-		catch(Exception e) {
-			System.out.println(e);
+		catch(EOFException e) {
+			System.out.println(e + " mapUser");
+			return true;
+		}catch (Exception e) {
+			System.out.println(e + " mapUser");
 			return false;
 		}
 		//return true;

@@ -29,7 +29,7 @@
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button fx:id="toVaccine" alignment="CENTER" layoutX="315.0" layoutY="416.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="111.0" text="Vaccine">
+            <Button fx:id="toVaccine" alignment="CENTER" layoutX="315.0" layoutY="416.0" mnemonicParsing="false" onAction="#switchToEditVaccine" prefHeight="35.0" prefWidth="111.0" text="Vaccine">
                <font>
                   <Font size="14.0" />
                </font></Button>

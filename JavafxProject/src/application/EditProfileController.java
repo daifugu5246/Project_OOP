@@ -56,6 +56,11 @@ public class EditProfileController extends TranferInfo{
 		fade.play();
 		translate.play();
 	}
+	public void setFeild() {
+		firstnameField.setText(getFirstname());
+		lastnameField.setText(getLastname());
+		birthdateField.setValue(getBirthdate());
+	}
 	public void save(ActionEvent event) {
 		if(infoCheck(firstnameField.getText(), lastnameField.getText(), birthdateField.getEditor().getText())) {
 			try {

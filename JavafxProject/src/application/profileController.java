@@ -81,6 +81,21 @@ public class profileController extends TranferInfo{
 		Parent root = loader.load();
 		EditProfileController edit = loader.getController();
 		edit.takeUser(user);
+		edit.setFeild();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        String css = this.getClass().getResource("application.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+	}
+	public void switchToEditVaccine(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("vaccine.fxml"));
+		Parent root = loader.load();
+		vaccineController vacrec = loader.getController();
+		vacrec.takeUser(user);
+		System.out.println(vacrec.getVaccines());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         String css = this.getClass().getResource("application.css").toExternalForm();
