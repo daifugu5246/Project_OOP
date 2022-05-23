@@ -78,7 +78,7 @@ public class Register2Controller implements Initializable {
 			fin = new FileInputStream("resource/user.txt");
 			oin = new ObjectInputStream(fin);
 			@SuppressWarnings("unchecked")
-			ArrayList<User> users = (ArrayList<User>) oin.readObject();
+			ArrayList<User> users = (ArrayList<User>) oin.readObject();//get arraylist form file
 			//ArrayList<User> users = new ArrayList<User>();
 			if(mapUsername()) {
 				if(usernameCheck(usernameField.getText()) && passwordCheck(passwordField.getText()) && infoCheck(firstname.getText(), lastname.getText(), birthdate.getEditor().getText())) {
@@ -129,10 +129,11 @@ public class Register2Controller implements Initializable {
 		switchScene.switchToLogin(event);
 	}
 	public boolean usernameCheck(String username) {
+		//check reqiurement 
 		if(username.isBlank() || username.isEmpty() || username.length() < 3) {
 			warningText.setText("*username should be 3 or more characters.");
 			return false;
-		}else {
+		}else {//check space
 			boolean check = true;
 			for(int i = 0 ; i < username.length();i++) {
 				if(username.charAt(i) == ' ') {
@@ -145,10 +146,11 @@ public class Register2Controller implements Initializable {
 		}
 	}
 	public boolean passwordCheck(String password) {
+		//check reqiurement 
 		if(password.isBlank() || password.isEmpty() || password.length() < 8 || password.length() > 12) {
 			warningText.setText("*password should be 8-12 characters.");
 			return false;
-		}else {
+		}else {//check space 
 			boolean check = true;
 			for(int i = 0 ; i < password.length();i++) {
 				if(password.charAt(i) == ' ') {
@@ -161,6 +163,7 @@ public class Register2Controller implements Initializable {
 		}
 	}
 	public boolean infoCheck(String firstname,String lastname,String birthdate) {
+		//check blank TextField of personal info
 		if(firstname.isBlank() || firstname.isEmpty()) {
 			warningText.setText("*please enter your firstname");
 			return false;
@@ -175,6 +178,7 @@ public class Register2Controller implements Initializable {
 		}	
 	}
 	public boolean  mapUsername() {
+		//check same username in file;
 		boolean check = true;
 		try {
 			fin = new FileInputStream("resource/user.txt");
@@ -201,6 +205,7 @@ public class Register2Controller implements Initializable {
 		//return true;
 	}
 	public void takeGender(ActionEvent event) {
+		//Check gender radio button
 		if(male.isSelected()) {
 			this.gender = Gender.MALE;
 		}else if (female.isSelected()){

@@ -24,16 +24,17 @@ public class profileController extends TranferInfo{
 	@FXML
 	private ImageView profile;
 	@FXML
-	private Label firstname;
+	private Label firstnameLabel;
 	@FXML
-	private Label lastname;
+	private Label lastnameLabel;
 	@FXML
-	private Label birthdate;
+	private Label birthdateLabel;
 	@FXML
 	private Pane subPane;
 	private SceneController switchScene;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//Animation
 		TranslateTransition translate = new TranslateTransition();
 		FadeTransition fade = new FadeTransition();
 		subPane.setLayoutX(192);
@@ -41,18 +42,19 @@ public class profileController extends TranferInfo{
 		fade.setNode(subPane);
 		fade.setFromValue(0.2);
 		fade.setToValue(1);
-		fade.setDuration(Duration.seconds(1.3));
+		fade.setDuration(Duration.seconds(0.8));
 		fade.play();
 		translate.play();
 	}
 	public void setInfo() {
+		//setInfo to show on profile scene
 		Image male = new Image("application/img/male.png");
 		Image female = new Image("application/img/female.png");
 		Image prefNotSay = new Image("application/img/prefer_not_to_say.png");
 		String dateFormat = getBirthdate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-		firstname.setText(getFirstname());
-		lastname.setText(getLastname());
-		birthdate.setText(" Birthdate\n" + dateFormat);
+		firstnameLabel.setText(getFirstname());
+		lastnameLabel.setText(getLastname());
+		birthdateLabel.setText(" Birthdate\n" + dateFormat);
 		switch(getGender()) {
 		case MALE:
 			profile.setImage(male);
@@ -71,10 +73,6 @@ public class profileController extends TranferInfo{
 	public void backToLogin(ActionEvent event) throws IOException {
 		switchScene = new SceneController();
 		switchScene.switchToLogin(event);
-	}
-	public void switchToTable(ActionEvent event) throws IOException {
-		//switchScene = new SceneController();
-		//switchScene.switchToTable(event);
 	}
 	public void switchToEditProfile(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("editProfile.fxml"));
@@ -95,7 +93,7 @@ public class profileController extends TranferInfo{
 		Parent root = loader.load();
 		vaccineController vacrec = loader.getController();
 		vacrec.takeUser(user);
-		System.out.println(vacrec.getVaccines());
+		vacrec.setTable();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         String css = this.getClass().getResource("application.css").toExternalForm();

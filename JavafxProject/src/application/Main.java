@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,15 @@ public class Main extends Application{
         primaryStage.show();
     }
     public static void main(String[] args) throws ClassNotFoundException, IOException {
+    	//All data print
+    	/*
+    	FileInputStream fin = new FileInputStream("resource/user.txt");
+    	ObjectInputStream oin = new ObjectInputStream(fin);
+    	ArrayList<User> users = (ArrayList<User>) oin.readObject();
+    	System.out.println("All users");
+    	for(int i = 0 ; i < users.size() ;i++) {
+    		System.out.println(i+1 +": "+ users.get(i).toString());
+    	}*/
         launch(args);
     }
 }

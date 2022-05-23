@@ -43,6 +43,16 @@
 	-fx-background-radius: 12px; 
 	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
 }
+#warningPane{
+	-fx-background-color: white;
+	-fx-background-radius: 12px; 
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+}
+#warningLabel{
+	-fx-font-family: "Berlin Sans FB";
+	-fx-font-size: 14px;
+	-fx-text-fill: "black";
+}
 #greetingText{
 	-fx-background-color: white;
 	-fx-font-family: "Berlin Sans FB";
@@ -71,12 +81,68 @@
 	-fx-background-color: #DCDCDC;
 	-fx-font-family: "Berlin Sans FB";
 	-fx-font-size: 12px;
-	-fx-text-fill: "black";
+	-fx-text-fill: #454545;
 }
 #table1Button:hover{
 	-fx-background-color: linear-gradient( #E5E5E5 45%, #DCDCDC 100%);
 	-fx-font-family: "Berlin Sans FB";
 	-fx-font-size: 12px;
-	-fx-text-fill: "black";
+	-fx-text-fill: #454545;
 	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);
 }
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: #9FBC96;
+    -fx-background-color: white;
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+.radio-button .radio:selected {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button .radio:hover {
+    -fx-background-color: linear-gradient( #E5E5E5 5%, white 100%);
+    -fx-background-image: null;
+}
+.radio-button -radio:armed {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:determinate {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button -radio:indeterminate {
+    -fx-background-color: white;
+    -fx-background-image: null;
+}
+.radio-button .dot {
+    -fx-background-radius: 15px;
+    -fx-mark-highlight-color: #DCDCDC ;
+    -fx-mark-color: #83BC72 ;
+    -fx-padding: 4px;
+}
+.table-row-cell:selected .table-cell {
+   -fx-background-color: #C9EEBF;
+   -fx-border-color: #B3D7A8;
+   -fx-text-fill: black;
+}
+.table-view .column-header {
+	-fx-background-color: #B3D7A8;
+/* 	-fx-font: 8pt "Century Gothic"; */
+/* 	-fx-text-fill: #f1f3f2; */
+/* 	-fx-font-weight: bold; */
+	-fx-border-color: #F1F1F1;
+	-fx-border-weight: 1px; 
+}
+#firstnameLabel {
+	-fx-font-family: "Berlin Sans FB";
+}
+ #lastnameLabel{
+ 	-fx-font-family: "Berlin Sans FB";
+ }
+ #birthdateLabel{
+ 	-fx-font-family: "Berlin Sans FB";
+ }

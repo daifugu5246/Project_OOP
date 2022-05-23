@@ -13,15 +13,15 @@
       <Pane fx:id="subPane" layoutX="192.0" layoutY="41.0" prefHeight="486.0" prefWidth="551.0">
          <children>
             <ImageView fx:id="profile" fitHeight="180.0" fitWidth="180.0" layoutX="186.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lastname" layoutX="287.0" layoutY="260.0" prefHeight="48.0" prefWidth="180.0" text="Surname">
+            <Label fx:id="lastnameLabel" layoutX="287.0" layoutY="260.0" prefHeight="48.0" prefWidth="180.0" text="Surname">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label fx:id="firstname" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="260.0" prefHeight="48.0" prefWidth="180.0" text="Name">
+            <Label fx:id="firstnameLabel" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="260.0" prefHeight="48.0" prefWidth="180.0" text="Name">
                <font>
                   <Font size="20.0" />
                </font></Label>
-            <Label fx:id="birthdate" alignment="CENTER" layoutX="163.0" layoutY="324.0" prefHeight="48.0" prefWidth="239.0" text="Birthdate">
+            <Label fx:id="birthdateLabel" alignment="CENTER" layoutX="163.0" layoutY="324.0" prefHeight="48.0" prefWidth="239.0" text="Birthdate">
                <font>
                   <Font size="16.0" />
                </font></Label>

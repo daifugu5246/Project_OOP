@@ -42,6 +42,7 @@ public class loginController implements Initializable{
 	private User user;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//Animation
 		TranslateTransition translate = new TranslateTransition();
 		FadeTransition fade = new FadeTransition();
 		subPane.setLayoutX(0);
@@ -60,24 +61,30 @@ public class loginController implements Initializable{
 			fin = new FileInputStream("resource/user.txt");
 			oin = new ObjectInputStream(fin);
 			@SuppressWarnings("unchecked")
-			ArrayList<User> users = (ArrayList<User>) oin.readObject(); 
+			ArrayList<User> users = (ArrayList<User>) oin.readObject(); //get arraylist from file
 			for(int i = 0 ; i < users.size() ; i++) {
+				//loop to get index in arraylist
 				String username = users.get(i).getUsername();
 				String password = users.get(i).getPassword();
+				//condition for check exist username
 				if( ((usernameField.getText()).equals(username)) && ((passwordField.getText()).equals(password)) ) {
+					//case have username and password matched
 					this.user = users.get(i);
 					switchToProfile(event);
 					break;
 				}
 				else if( ((usernameField.getText()).equals(username))== true && ((passwordField.getText()).equals(password)) == false ) {
+					//case username mismatch with the password
 					warningText.setText("*username mismatch with the password.");
 					break;
 				}
 				else if(usernameField.getText().isBlank() || usernameField.getText().isEmpty() 
 						|| passwordField.getText().isBlank() || passwordField.getText().isEmpty()) {
+					// case textFields blank -> do notthing
 					
 				}
 				else {
+					//case username does not exist
 					warningText.setText("*username not found.");
 				}
 			}
@@ -86,6 +93,7 @@ public class loginController implements Initializable{
 		}
 	}
 	public void register(ActionEvent event) throws IOException {
+		//switch to register
 		switchScene = new SceneController();
 		switchScene.switchToRegister(event);
 	}
@@ -105,6 +113,7 @@ public class loginController implements Initializable{
         stage.show();
 	}
 	public void cleanWarning(KeyEvent type) {
+		//clean warning text
 		warningText.setText("");
 	}
 }

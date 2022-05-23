@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
-public abstract class TranferInfo implements Initializable{
+public abstract class TranferInfo implements Initializable{//Tranfer data between scene
 	protected User user;
 	private String username;
 	private String firstname;
@@ -64,7 +64,7 @@ public abstract class TranferInfo implements Initializable{
 	public void setVaccines(ArrayList<Vaccine> vaccines) {
 		this.vaccines = vaccines;
 	}
-	public void takeUser(User user) {
+	public void takeUser(User user) {//take data from previous scene
 		this.user = user;
 		setUsername(user.getUsername());
 		setFirstname(user.getFirstname());
@@ -72,7 +72,7 @@ public abstract class TranferInfo implements Initializable{
 		setBirthdate(user.getBirthdate());
 		setGender(user.getGender());
 		setVaccines(user.getVaccines());
-		System.out.println(this.user.getVaccines());
+		System.out.println("Tranfer data to another scene");
 		
 	}
 }

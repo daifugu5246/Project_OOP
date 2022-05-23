@@ -2,16 +2,13 @@ package application;
 
 
 
-import java.io.EOFException;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -26,12 +23,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -71,6 +69,10 @@ public class vaccineController extends TranferInfo{
     
 	@FXML
 	private Pane subPane;
+	@FXML
+	private Pane warningPane;
+	@FXML
+	private Label warningLabel;
 	ObservableList<Vaccine> vaccines;
 	private FileOutputStream fout = null;
 	private ObjectOutputStream oout = null;
@@ -87,20 +89,65 @@ public class vaccineController extends TranferInfo{
 	}
 	public ObservableList<Vaccine> getItem(){
 		if(getVaccines() == null) {
-			System.out.println(getFirstname());
 			vaccines = FXCollections.observableArrayList();
 		}else if(getVaccines() != null){
-			System.out.println("Hello2");
+			vaccines = FXCollections.observableArrayList();
 			for(int i = 0 ; i < getVaccines().size(); i++) {
 				vaccines.add(getVaccines().get(i));
 			}
 		}
 		return vaccines;
 	}
-	public void addItem() {
+	public void addItem(ActionEvent event) {
+		try {
 		vaccines.add(new Vaccine(Integer.parseInt(numField.getText()), nameField.getText(), compField.getText(), dateField.getValue(), hosField.getText()));
+		clear(event);
+		}catch (Exception e) {
+			
+		}
+	}
+	public void removeItem(ActionEvent event) {
+		try {
+		int selectedID = table1.getSelectionModel().getSelectedIndex();
+		table1.getItems().remove(selectedID);
+		clear(event);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	public void updateItem(ActionEvent event) {
+		try {
+		int selectedID = table1.getSelectionModel().getSelectedIndex();
+		Vaccine temp = new Vaccine(Integer.parseInt(numField.getText()), nameField.getText(), compField.getText(), dateField.getValue(), hosField.getText());
+		Vaccine vaccine = table1.getItems().set(selectedID,temp);
+		clear(event);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	public void clickItem(MouseEvent mouseEvent) {
+		try {
+		int selectedID = table1.getSelectionModel().getSelectedIndex();
+		Vaccine vaccine = table1.getItems().get(selectedID);
+		numField.setText(vaccine.getNumber().toString());
+		nameField.setText(vaccine.getName());
+		compField.setText(vaccine.getCompany());
+		dateField.setValue(vaccine.getDate());
+		hosField.setText(vaccine.getHospital());
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	public void clear(ActionEvent event) {
+		//clear textField
+		numField.setText(null);
+		nameField.setText(null);
+		compField.setText(null);
+		dateField.setValue(null);
+		hosField.setText(null);
 	}
 	public void save(ActionEvent event) {
+		//save table data
 		try {
 			fin = new FileInputStream("resource/user.txt");
 			oin = new ObjectInputStream(fin);
@@ -113,6 +160,12 @@ public class vaccineController extends TranferInfo{
 					}
 					users.get(i).setVaccines(temp);
 					user.setVaccines(temp);
+					warning("Infromation Saved.");
+					numField.setText(null);
+					nameField.setText(null);
+					compField.setText(null);
+					dateField.setValue(null);
+					hosField.setText(null);
 				}
 			}
 			fout = new FileOutputStream("resource/user.txt");
@@ -122,7 +175,25 @@ public class vaccineController extends TranferInfo{
 			System.err.println(e);
 		}
 	}
+	public void warning(String text) {
+		//call waring Pane
+		FadeTransition fadeIn = new FadeTransition();
+		FadeTransition fadeOut = new FadeTransition();
+		fadeIn.setNode(warningPane);
+		fadeOut.setNode(warningPane);
+		warningLabel.setText(text);
+		fadeIn.setFromValue(0.2);
+		fadeIn.setToValue(1);
+		fadeIn.setDuration(Duration.seconds(0.5));
+		fadeIn.play();
+		fadeOut.setDelay(Duration.seconds(1.8));
+		fadeOut.setFromValue(1);
+		fadeOut.setToValue(0);
+		fadeOut.setDuration(Duration.seconds(0.5));
+		fadeOut.play();
+	}
 	public void setTable() {
+		//set exist data to table
 		col_number.setCellValueFactory(new PropertyValueFactory<>("number"));
 		col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
 		col_company.setCellValueFactory(new PropertyValueFactory<>("company"));

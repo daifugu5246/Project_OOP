@@ -43,6 +43,7 @@ public class EditProfileController extends TranferInfo{
 	private ObjectInputStream oin = null;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//Animation
 		TranslateTransition translate = new TranslateTransition();
 		FadeTransition fade = new FadeTransition();
 		subPane.setLayoutX(0);
@@ -57,11 +58,13 @@ public class EditProfileController extends TranferInfo{
 		translate.play();
 	}
 	public void setFeild() {
+		//fill textField with user data
 		firstnameField.setText(getFirstname());
 		lastnameField.setText(getLastname());
 		birthdateField.setValue(getBirthdate());
 	}
 	public void save(ActionEvent event) {
+		//save edited profile info
 		if(infoCheck(firstnameField.getText(), lastnameField.getText(), birthdateField.getEditor().getText())) {
 			try {
 				fin = new FileInputStream("resource/user.txt");
@@ -85,7 +88,7 @@ public class EditProfileController extends TranferInfo{
 			}finally {
 				try {
 					warningText.setFill(Color.GREEN);
-					warningText.setText("information saved"); 
+					warningText.setText("Information saved"); 
 					fin.close();
 					fout.close();
 					oin.close();
@@ -96,7 +99,9 @@ public class EditProfileController extends TranferInfo{
 			}
 		}		
 	}
+	
 	public boolean infoCheck(String firstname,String lastname,String birthdate) {
+		//check blank/empty textField
 		  warningText.setFill(Color.RED);
 		  if(firstname.isBlank() || firstname.isEmpty()) {
 			  warningText.setText("*please enter your firstname"); 
@@ -115,8 +120,8 @@ public class EditProfileController extends TranferInfo{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
 		Parent root = loader.load();
 		profileController profile = loader.getController();
-		profile.takeUser(user);
-		profile.setInfo();
+		profile.takeUser(user);//tranfer data
+		profile.setInfo();//set info to show on profile scene
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         String css = this.getClass().getResource("application.css").toExternalForm();
