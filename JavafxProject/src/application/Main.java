@@ -22,7 +22,7 @@ public class Main extends Application{
         scene.getStylesheets().add(css);
         primaryStage.getIcons().add(icon);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Covid-19 Application");
+        primaryStage.setTitle("Vaccine recorder");
         primaryStage.setResizable(false);
         primaryStage.show();
     }

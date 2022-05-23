@@ -81,7 +81,7 @@ public class Register2Controller implements Initializable {
 			ArrayList<User> users = (ArrayList<User>) oin.readObject();//get arraylist form file
 			//ArrayList<User> users = new ArrayList<User>();
 			if(mapUsername()) {
-				if(usernameCheck(usernameField.getText()) && passwordCheck(passwordField.getText()) && infoCheck(firstname.getText(), lastname.getText(), birthdate.getEditor().getText())) {
+				if(usernameCheck(usernameField.getText()) && passwordCheck(passwordField.getText()) && infoCheck(firstname.getText(), lastname.getText(), birthdate.getEditor().getText()) && takeGender()) {
 					//System.out.println(usernameField.getText());
 					User user = new User(usernameField.getText(),passwordField.getText(),firstname.getText(),lastname.getText(),birthdate.getValue(),this.gender);
 					users.add(user);
@@ -204,14 +204,20 @@ public class Register2Controller implements Initializable {
 		}
 		//return true;
 	}
-	public void takeGender(ActionEvent event) {
+	public boolean takeGender() {
 		//Check gender radio button
 		if(male.isSelected()) {
 			this.gender = Gender.MALE;
+			return true;
 		}else if (female.isSelected()){
 			this.gender = Gender.FEMALE;
+			return true;
 		}else if (prefNotSay.isSelected()){
 			this.gender = Gender.PREFER_NOT_TO_SAY;
+			return true;
+		}else {
+			warningText.setText("*please select your gender");
+			return false;
 		}
 	}
 	public void cleanWarning(KeyEvent type) {
